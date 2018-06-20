@@ -67,7 +67,9 @@ class Player {
                 }
                 break;
             case 'up':
+            if( this.y > 0){
                 this.y -= 85;
+                }
                 break;
             case 'right':
                 if (this.x < 400) {
