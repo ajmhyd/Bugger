@@ -1,4 +1,4 @@
-// Enemies our player must avoid
+// Enemy class
 class Enemy {
     constructor(x, y, speed) {
         this.x = x;
@@ -16,11 +16,17 @@ class Enemy {
         // which will ensure the game runs at the same speed for
         // all computers.
         this.x += this.speed * dt;
-
-        if (this.x >= 505) {
-            this.x = 0;
+        //if enemy makes it across canvas, reset
+        if (this.x >= 550) {
+            this.x = -150;
         }
-        collision();
+        //collision check algorithm
+        if (this.x < player.x + 75 &&
+            this.x + 75 > player.x &&
+            this.y < player.y + 50 &&
+            50 + this.y > player.y) {
+            player.reset();
+        }
     }
 
     render() {
@@ -28,9 +34,7 @@ class Enemy {
     }
 }
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//player class
 class Player {
     constructor(x, y) {
         this.x = x;
@@ -42,16 +46,14 @@ class Player {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
-    update(dt){
-        switch(this.y){
+    update(dt) {
+        switch (this.y) {
             case -15:
-            alert('winner');
-            winner();
-            player.reset();
-            break;
-        }         
+                winner();
+                break;
+        }
     }
-    
+
     reset() {
         this.x = 200;
         this.y = 410;
@@ -73,7 +75,7 @@ class Player {
                 }
                 break;
             case 'down':
-                if(this.y < 400) {
+                if (this.y < 400) {
                     this.y += 85;
                 }
                 break;
@@ -81,34 +83,39 @@ class Player {
     }
 }
 
-function collision() {
-        if (enemy.x < player.x + 75 &&
-            enemy.x + 75 > player.x &&
-            enemy.y < player.y + 50 &&
-            50 + enemy.y > player.y){
-                player.reset();
-            }
-    
-}
-
-function winner() {
-    
-}
-
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
 let player = new Player(200, 410);
 let allEnemies = [];
 let enemyY = [60, 145, 230];
-
-
-// let enemy = new Enemy(0, enemy[Math.floor(Math.random() * 3)], 200);
-// 	allEnemies.push(enemy);
-var enemy = new Enemy(0, enemyY[Math.floor(Math.random() * 3)], Math.random() * 300);
+let level = 1;
+let enemy = new Enemy(-150, enemyY[Math.floor(Math.random() * 3)], Math.random() * 300);
 allEnemies.push(enemy);
-    
+
+//nextLevel
+function nextLevel() {
+    level++;
+    let levelText = `Congratulations on beating Level: ${level}!!!`
+    $('.modal-title').html(levelText);
+    let enemy = new Enemy(-150, enemyY[Math.floor(Math.random() * 3)], Math.random() * 300);
+    allEnemies.push(enemy);
+    player.reset();
+
+}
+//back to level 1
+function level1() {
+    level = 1;
+    let levelText = `Congratulations on beating Level: ${level}!!!`
+    $('.modal-title').html(levelText);
+    allEnemies = [];
+    let enemy = new Enemy(-150, enemyY[Math.floor(Math.random() * 3)], Math.random() * 300);
+    allEnemies.push(enemy);
+    player.reset();
+
+}
+//winner modal
+function winner() {
+    $('#myModal').modal('show');
+}
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
