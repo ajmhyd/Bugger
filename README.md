@@ -18,8 +18,9 @@ A game called Bugger that is similar to the classic arcade game Frogger, played 
 3. Use the arrow keys to move the player.
 4. Get the player to the water.
 5. Avoid colliding with the bugs.
-6. Win once player has made it to the water.
-7. Continue to next level to increase difficulty.
+6. If collision is detected player will be reset.
+7. Win once player has made it to the water.
+8. Continue to next level to increase difficulty.
 
 ## Dependencies
 
