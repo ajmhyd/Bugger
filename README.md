@@ -9,7 +9,7 @@
 
 ## Description
 
-A game called Bugger that is similar to the classic arcade game Frogger, played in the browser.
+An HTML5 Canvas powered video game, developed using the best practices in Object Oriented JavaScript. Called Bugger, it is similar to the classic arcade game Frogger, played in the browser.
 
 ## Instructions
 
