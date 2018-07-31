@@ -14,7 +14,7 @@ A game called Bugger that is similar to the classic arcade game Frogger, played 
 ## Instructions
 
 1. Download the zip or clone from [Github](https://github.com/ajmhyd/Bugger.git).
-2. Open the index.html file in a browser.
+2. Open the `index.html` file in a browser.
 3. Use the arrow keys to move the player.
 4. Get the player to the water.
 5. Avoid colliding with the bugs.
