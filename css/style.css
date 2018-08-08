@@ -1,3 +1,7 @@
 body {
     text-align: center;
 }
+
+.game-name {
+    margin-bottom: -30px;
+}

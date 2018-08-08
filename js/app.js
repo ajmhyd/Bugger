@@ -102,7 +102,6 @@ function nextLevel() {
     let enemy = new Enemy(-150, enemyY[Math.floor(Math.random() * 3)], Math.random() * 300);
     allEnemies.push(enemy);
     player.reset();
-
 }
 //back to level 1
 function level1() {
@@ -113,7 +112,6 @@ function level1() {
     let enemy = new Enemy(-150, enemyY[Math.floor(Math.random() * 3)], Math.random() * 300);
     allEnemies.push(enemy);
     player.reset();
-
 }
 //winner modal
 function winner() {
