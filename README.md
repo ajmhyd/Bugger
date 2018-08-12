@@ -1,5 +1,7 @@
 # Bugger
 
+[Play the game here](https://ajmhyd.github.io/Bugger/)
+
 ## Table of Contents
 
 * [Description](#Description)
@@ -26,7 +28,7 @@ An HTML5 Canvas powered video game, developed using the best practices in Object
 
 * [Bootstrap](https://getbootstrap.com/)
 * [Font Awesome](https://fontawesome.com/)
-* [Jquery](https://www.google.com/search?q=jquery&oq=jqe&aqs=chrome.1.69i57j0l5.2236j0j1&sourceid=chrome&ie=UTF-8)
+* [Jquery](https://jquery.com/)
 
 ## References
 
