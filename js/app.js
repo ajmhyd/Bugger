@@ -51,7 +51,7 @@ class Player {
         switch (this.y) {
             case -15:
                 winner();
-                break;
+            break;
         }
     }
 
@@ -117,15 +117,37 @@ function level1() {
 function winner() {
     $('#myModal').modal('show');
 }
+
+function modalKeyboard() {
+    document.addEventListener('keyup', (e) => {
+        switch (e.keyCode) {
+            case 13:
+            console.log('hello');
+        }
+    })
+}
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
-    let allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
         40: 'down'
     };
+    //esc and enter keys
+    if($('#myModal').hasClass('show')) {
+        switch (e.keyCode) {
+            case 13:
+                nextLevel();
+                $('#myModal').modal('hide');
+            break;
+            case 27:
+                level1();
+                $('#myModal').modal('hide');
+            break;
+        }
+    }
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
